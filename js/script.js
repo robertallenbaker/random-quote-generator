@@ -14,7 +14,7 @@ let quotes = [
   {
     quote: 'The greatest glory in living lies not in never falling, but in rising every time we fall.',
     source: 'Nelson Mandela',
-    citation: '1995'
+    year: '1995'
   },
   {
     quote: 'Time is precious, waste it wisely.',
@@ -52,9 +52,21 @@ let printQuote = () => {
   let quoteString = 
     `
       <p class="quote">${quotes[randomQuote].quote}</p>
-      <p class="source">${quotes[randomQuote].source}</p>
-
+      <p class="source">${quotes[randomQuote].source}
     `;
+  if(quotes.citation != '') {
+    quoteString += 
+      `
+        <span class="citation">${quotes[randomQuote].citation}</span>
+      `
+  }
+  if(quotes.citation != '') {
+    quoteString +=
+      `
+        <span class="year">${quotes[randomQuote].year}</span>
+      `
+  }
+  quotesString += '</p>';
   document.getElementById('quote-box').innerHTML = quoteString; 
 }
 
